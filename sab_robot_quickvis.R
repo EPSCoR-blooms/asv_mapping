@@ -8,8 +8,10 @@ path_pat = NULL
 
 if (grepl('win', os, ignore.case = T) == T ){
   path_pat = 'Z:/'
+  message('Windows OS detected')
 } else if (grepl('mac', os, ignore.case = T) == T ){
   path_pat = '/Volumes/EpscorBlooms/'
+  message('Mac OS detected')
 } else {
   message('OS path pattern not detected. Please store OS path pattern manually.')
 }
@@ -31,17 +33,17 @@ SAB <- st_as_sf(SAB)
 #get the crs
 st_crs(SAB)
 
-#reporject into WGS84, UTM 18N
-SAB_reproj <- st_transform(SAB, crs = 'EPSG:32618')
+#reporject into WGS84, UTM 19N
+SAB_reproj <- st_transform(SAB, crs = 'EPSG:32619')
 #check projection
 st_crs(SAB_reproj)
 
 #read in robot data
-SAB_robot_data <- read.csv(file.path(data_dir, 'SAB_2021-08-20_asv_processed.csv'))
+SAB_robot_data <- read.csv(file.path(data_dir, 'SAB_2021-08-26_asv_processed.csv'))
 #make into simple feature; crs is WGS84
 SAB_robot_georef <- st_as_sf(SAB_robot_data, coords = c('longitude_deg', 'latitude_deg'), crs = 'EPSG:4326')
-#reproject to WGS UTM18N
-SAB_robot_georef_reproj <- st_transform(SAB_robot_georef, 'EPSG:32618')
+#reproject to WGS UTM19N
+SAB_robot_georef_reproj <- st_transform(SAB_robot_georef, 'EPSG:32619')
 #check projection
 st_crs(SAB_robot_georef_reproj)
 
