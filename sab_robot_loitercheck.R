@@ -1,4 +1,4 @@
-# Auburn robot quick vis to check loiters
+# Sabattus robot quick vis to check loiters
 
 library(tidyverse)
 library(sf)

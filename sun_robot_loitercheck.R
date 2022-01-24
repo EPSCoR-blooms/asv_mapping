@@ -1,4 +1,4 @@
-# Sunapee robot quick vis
+# Sunapee robot quick vis to check loiters
 
 library(tidyverse)
 library(sf)
@@ -77,32 +77,3 @@ for(i in 1:length(robo_runs)) {
   tmap_save(SUN_map_robot, file.path(map_dir, filename))
 }
 
-
-
-# 
-# 
-# 
-# 
-# #list of variables from sonde
-# variables = c('temperatureWater_degC',
-#               'electricalConductivity_uscm',
-#               'specificConductance_mscm',
-#               'specificConductance_uscm',
-#               'pH',
-#               'chlorophyll_a_RFU',
-#               'chlorophyll_a_ugl',
-#               'blue_GreenAlgae_Cyanobacteria_Phycocyanin_ugl',
-#               'oxygenDissolved_perc',
-#               'oxygenDissolved_mgl',
-#               'solidsTotalSuspended_mgl',
-#               'turbidity_NTU')
-# 
-# #function to iteratively add variables over list
-# make_map = function(variable) {
-#   SUN_var_map = SUN_map +
-#     tm_shape(SUN_robot_georef_reproj) +
-#     tm_dots(col = variable)
-#   print(SUN_var_map)
-# }
-# 
-# make_map(variables)
